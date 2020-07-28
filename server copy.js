@@ -1,10 +1,6 @@
-var express = require('express');
+/*var express = require('express');
 var path = require('path');
 var app = express();
-var loginAPI = require('./routes/loginroute.js');
-var indexRoute = require('./routes/indexroute.js');
-var accountRoute = require('./routes/accountroute.js');
-
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -21,13 +17,33 @@ let server = http.listen(3000, function () {
     console.log("Server listening on: "+ host + " port: " + port);
 });
 
-indexRoute(app, path);
 
-accountRoute(app,path);
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + "/www/form.html");
+});
 
-loginAPI(app);
+app.post('/api/login', function(req,res){
 
+    if(!req.body) {
+        return res.sendStatus(400);
+    }
+    const userCredentials = [
+        {email: "zhu@email.com", pass: "pass"},
+        {email: "jon@email.com", pass: "pass"},
+        {email: "ethan@email.com", pass: "pass"}
+    ]
+    var customer = {};
+    customer.email = req.body.email;
+    customer.pass = req.body.pass;
+    var item = {"ok": false};
+    for (var i = 0; i < userCredentials.length;i++) {
+        if (req.body.email == userCredentials[i].email && req.body.pass == userCredentials[i].pass){
+            item.ok = true;
+            break;
+        }
+    }
 
+    res.send(item);
     /*if(req.body.email == "zhu@email.com" && req.body.pass == "pass"){
         customer.valid =true;
     }else{
@@ -41,9 +57,11 @@ loginAPI(app);
         else{
             customer.valid = false;
         }
-    }); */
+    }); 
     //res.write(customer);
 
 
+});
 
 
+*/

@@ -1,4 +1,4 @@
-module.exports = function(app) {
+module.exports.login = function(app) {
 
     app.post('/api/login', function(req,res){
 
@@ -23,4 +23,3 @@ module.exports = function(app) {
 
         res.send(item);
 })}
-    

@@ -35,6 +35,9 @@ function ajaxPost(){
         if(res.ok == false){
             console.log('is false');
             $("#errormsg").removeClass("hidemessage").addClass("showmessage");
+        }else{
+            console.log('is true');
+            $("#errormsg").removeClass("showmessage").addClass("hidemessage");
         }
         },
         error: function(e) {
