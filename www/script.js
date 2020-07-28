@@ -7,18 +7,18 @@ $(document).ready(function() {
 function ajaxPost(){
 
     var formData = {
-        email : $("email").val(),
-        pass : $("pass").val()
+        email : $("#email").val(),
+        pass : $("#pass").val()
     }
 
     $.ajax({
         type: "POST",
         contentType: "application/json",
-        url: window.location +"api/login",
+        url: window.location + "api/login",
         data: JSON.stringify(formData),
         datatype: 'json',
-        success: function(customer) {
-            if(customer.valid == true){
+        success: function(res) {
+            /*if(customer.valid == true){
                 $("#loginform").removeClass("fail");
                 $("#loginform").addClass("success");
             }else{
@@ -27,9 +27,15 @@ function ajaxPost(){
             }
 
             // Write the value of the returned properties to the screen.
-        $("#postResultDiv").html("<p>" + "Post Successfully! <br>" + "Email Address" 
+        $("#postResultDiv").html("<p>" + "Post Successfully! <br>" + "Email Address: " 
         + customer.email + "</br>" + "Password: " + customer.pass + "</br>"
         + "Valid User: " + customer.valid +"</p>"); 
+        },
+        */
+        if(res.ok == false){
+            console.log('is false');
+            $("#errormsg").removeClass("hidemessage").addClass("showmessage");
+        }
         },
         error: function(e) {
             alert("Error!")
@@ -42,5 +48,5 @@ function ajaxPost(){
 
 function resetData() {
     $("#email").val("");
-    $("pass").val(""); 
+    $("#pass").val(""); 
 }

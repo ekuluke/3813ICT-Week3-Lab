@@ -28,3 +28,11 @@ form input {
     background-color: red;
     padding: 1em;
 }
+
+.hidemessage{
+    display:none;
+}
+
+.showmessage{
+    display:block;
+}
