@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "server for login page",
-  "main": "www/index.html",
+  "main": "www/form.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
